@@ -3,29 +3,38 @@ var sounds = [
 
 
 	{
-		files: ['assets/mp3/hows-it-going.mp3'],
-		quote: "Hey, how's it going?",
-		author: {name: 'Ryan Rampersad', avatar: 'assets/avatar/ryan.png', link: 'http://twitter.com/ryanmr'},
+		files: ['assets/audio/have-a-good-one.mp3'],
+		quote: "Have a good one",
+		author: {name: 'Ryan Rampersad', avatar: 'assets/avatar/ryan.jpg', link: 'http://twitter.com/ryanmr'},
 		origin: {name: 'Every Day'}
 	},
 	{
-		files: ['assets/mp3/hold-on-tweet.mp3'],
+		files: ['assets/audio/hold-on-tweet.mp3'],
 		quote: "Hold on while I tweet this...",
-		author: {name: 'Ryan Rampersad', avatar: 'assets/avatar/ryan.png'}
+		author: {name: 'Ryan Rampersad', avatar: 'assets/avatar/ryan.jpg'}
 	}
 
 
 ];
 
+var app = {
 
-window.addEvent('domready', function(){
+	ready: function() {
+		soundManager.onready(function(){
+			app.start();
+		});
+	},
 
-	var content = document.id('content');
-	sounds.each(function(data){
+	start: function() {
+		var content = document.id('content');
+		sounds.each(function(data){
 
-		var sound = new Sound(data);
-		content.grab(sound);
+			var sound = new Sound(data);
+			content.grab(sound);
 
-	});
+		});
+	}
 
-});
+};
+
+window.addEvent('domready', app.ready);
