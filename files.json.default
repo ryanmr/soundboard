@@ -1,0 +1,22 @@
+// files.json.default
+
+{
+	sounds: [
+
+		{
+			quote: 'This is a soundbite!',
+			files: ['sounds/soundbite.mp3','sounds/soundbite.ogg'],
+			author: {
+				name: 'ryan',
+				avatar: 'avatar/ryan.png',
+				link: 'http://twitter.com/ryanmr'
+			}
+			origin: {
+				name: 'Someplace',
+				link: 'http://google.com'
+			}
+		},
+
+
+	]
+}
