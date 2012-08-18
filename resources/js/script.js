@@ -24,6 +24,7 @@
 
 		// attribute setup
 		sound.getElement('.quote h3').set('html', data.quote);
+		if ( data.quote.length > 28 ) sound.getElement('.quote h3').addClass('long');
 		sound.getElement('.avatar img').set('src', data.author.avatar);
 
 		// seems repetitive
@@ -47,6 +48,7 @@
 		initialize: function(data) {
 			this.data = data;
 
+			// Assuming soundManger.onready is completed...
 			this.sound = soundManager.createSound({
 				id: data.quote.clean().hyphenate(),
 				url: data.files[0]
