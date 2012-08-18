@@ -63,6 +63,10 @@ var app = {};
 
 		}
 
+		toElement: function() {
+			return this.view;
+		}
+
 
 
 	}); 

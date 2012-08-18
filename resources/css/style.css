@@ -1,0 +1,12 @@
+#container {
+  width: 960px;
+  margin: 20px auto; }
+
+#content {
+  width: 960px;
+  overflow: hidden; }
+
+.sound {
+  width: 300px;
+  margin-left: 10px;
+  margin-right: 10px; }
