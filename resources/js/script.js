@@ -1,8 +1,5 @@
 // script.js
 
-
-var app = {};
-
 (function(){
 
 	function createView(data) {
@@ -11,7 +8,19 @@ var app = {};
 		// structure setup
 		sound.grab(new Element('div.quote').grab(new Element('h3')));
 		sound.grab(new Element('div.avatar').grab(new Element('img')));
-		sound.grab(new Element('div.meta').grab(new Element('div.origin')).grab(new Element('div.author')));
+		
+		var meta = new Element('div.meta');
+		if ( data.origin != undefined ) {
+			meta.grab(new Element('div.origin'));
+			var origin = meta.getElement('.origin');
+			if ( data.origin.link )
+				origin.grab(new Element('a').set('html', data.origin.name).set('href', data.origin.link));
+			else
+				origin.set('html', data.origin.name);
+		}
+
+		meta.grab(new Element('div.author'));
+		sound.grab(meta);
 
 		// attribute setup
 		sound.getElement('.quote h3').set('html', data.quote);
@@ -25,11 +34,7 @@ var app = {};
 		else
 			author.set('html', data.author.name);
 
-		var origin = sound.getElement('.author');
-		if ( data.origin.link )
-			origin.grab(new Element('a').set('html', data.origin.name).set('href', data.origin.link));
-		else
-			origin.set('html', data.origin.name);
+
 
 		return sound;
 
@@ -40,7 +45,6 @@ var app = {};
 		options: {},
 
 		initialize: function(data) {
-			this.setOptions(options);
 			this.data = data;
 
 			this.sound = soundManager.createSound({
@@ -61,7 +65,7 @@ var app = {};
 				self.sound.play();
 			});
 
-		}
+		},
 
 		toElement: function() {
 			return this.view;
@@ -73,4 +77,4 @@ var app = {};
 
 	window.Sound = Sound;
 
-});
+})();
