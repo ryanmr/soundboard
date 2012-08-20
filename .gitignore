@@ -1,6 +1,7 @@
 # git-ignore
 
 .sass-cache
+assets/*
 
 
 # Compiled source #
