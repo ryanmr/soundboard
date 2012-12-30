@@ -94,6 +94,11 @@ var app = {
 
 	start: function() {
 		var content = document.id('content');
+
+		if (typeof sounds === 'undefined') {
+			sounds = [];
+		}
+
 		sounds.each(function(data){
 
 			var sound = new Sound(data);
